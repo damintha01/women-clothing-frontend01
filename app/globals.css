@@ -288,6 +288,22 @@
   }
 }
 
+/*
+ * The nav's icons are drawn at 18px, which is far under the ~44px a thumb needs.
+ * Growing the icons would change the design, so this stretches only the hit area
+ * via a pseudo-element — it takes no space in the layout, so spacing is untouched.
+ * The 11px inset keeps neighbours from overlapping at the nav's mobile gap of 24px.
+ */
+@utility tap-target {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -11px;
+  }
+}
+
 @keyframes lux-in {
   from {
     opacity: 0;

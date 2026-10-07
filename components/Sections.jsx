@@ -186,7 +186,10 @@ export function Lookbook({ products = [] }) {
             {lookItems.map((item) => (
               <div key={item.name} className="group absolute" style={{ top: item.top, left: item.left }}>
                 <span className="block size-3 rounded-full bg-cream ring-4 ring-cream/30 transition-transform duration-500 group-hover:scale-125" />
-                <div className="pointer-events-none absolute left-6 top-1/2 w-56 -translate-y-1/2 bg-cream p-4 opacity-0 shadow-[var(--shadow-lux)] transition-opacity duration-500 group-hover:opacity-100">
+                {/* Hover-only, so it is dead weight on touch — and at 224px wide it pushed
+                    the whole document past the viewport on phones. The same three pieces are
+                    listed with names and prices in the column below. */}
+                <div className="pointer-events-none absolute left-6 top-1/2 hidden w-56 -translate-y-1/2 bg-cream p-4 opacity-0 shadow-[var(--shadow-lux)] transition-opacity duration-500 group-hover:opacity-100 lg:block">
                   <p className="font-serif text-lg leading-tight">{item.name}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{LKR(item.price)}</p>
                 </div>
@@ -261,7 +264,7 @@ export function BrandStory() {
           <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
             Sri Lankan at heart. International in appearance.
           </p>
-          <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
+          <div className="mt-10 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3">
             {[
               ["Small-batch", "Made in Colombo"],
               ["Natural fibres", "Linen, silk, cotton"],
