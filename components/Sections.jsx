@@ -131,7 +131,7 @@ export function EditorialStory() {
           <div className="mx-auto w-full max-w-[1600px] px-5 md:px-10">
             <Reveal>
               <p className="eyebrow text-cream/80">Editorial 01</p>
-              <h2 className="display mt-5 max-w-[12ch] text-[clamp(3rem,10vw,9rem)] text-cream">
+              <h2 className="display mt-5 max-w-[12ch] text-[clamp(2.5rem,10vw,9rem)] text-cream">
                 The New Femininity
               </h2>
             </Reveal>
@@ -197,7 +197,7 @@ export function Lookbook({ products = [] }) {
 
         <Reveal delay={120} className="flex flex-col justify-center">
           <p className="eyebrow text-rose">Look 04 — Office Edit</p>
-          <h3 className="display mt-5 text-5xl">Tailoring, undone</h3>
+          <h3 className="display mt-5 text-4xl md:text-5xl">Tailoring, undone</h3>
           <ul className="mt-10 divide-y divide-border border-y border-border">
             {looks.map((p) => (
               <li key={p.id} className="flex items-center gap-5 py-5">
@@ -252,7 +252,7 @@ export function BrandStory() {
         </Reveal>
         <Reveal delay={120}>
           <p className="eyebrow text-rose">Our story</p>
-          <h2 className="display mt-5 text-[clamp(2.6rem,7vw,6rem)]">More than clothes.</h2>
+          <h2 className="display mt-5 text-[clamp(2.2rem,7vw,6rem)]">More than clothes.</h2>
           <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
             Ceylon began in a small Colombo studio with a single idea: that the clothes a woman
             wears every day should feel as considered as the ones she saves for occasions. We cut in
