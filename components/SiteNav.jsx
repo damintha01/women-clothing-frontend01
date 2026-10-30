@@ -50,6 +50,8 @@ export function SiteNav() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [accountOpen]);
 
+  const tone = scrolled || mega ? "text-foreground" : "text-cream";
+
   function submitSearch(e) {
     e.preventDefault();
     if (!query.trim()) return;
@@ -73,7 +75,7 @@ export function SiteNav() {
           : "bg-transparent"
           }`}
       >
-        <div className={`mx-auto flex max-w-[1600px] items-center gap-6 px-5 md:px-10 ${scrolled ? "py-4" : "py-6"} text-foreground transition-all duration-700`}>
+        <div className={`mx-auto flex max-w-[1600px] items-center gap-6 px-5 md:px-10 ${scrolled ? "py-4" : "py-6"} transition-all duration-700 ${tone}`}>
           <button
             aria-label="Open menu"
             className="lg:hidden"
@@ -259,9 +261,9 @@ export function SiteNav() {
             { label: "Sale", href: "/shop?tag=sale" },
             ...(user
               ? [
-                { label: "My Orders", href: "/account/orders" },
-                { label: "Profile Settings", href: "/account/profile" },
-              ]
+                  { label: "My Orders", href: "/account/orders" },
+                  { label: "Profile Settings", href: "/account/profile" },
+                ]
               : [{ label: "Sign In", href: "/login" }]),
           ].map((item) => (
             <Link key={item.label} href={item.href} onClick={() => setMobile(false)} className="display text-5xl">
