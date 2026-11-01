@@ -3,7 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { Footer } from "@/components/Sections";
 import { ShopView } from "@/components/shop/ShopView";
 
-export const metadata = { title: "Shop — Ceylon" };
+export const metadata = { title: "Shop - Ceylon" };
 
 export default function ShopPage() {
   return (
