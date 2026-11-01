@@ -88,7 +88,7 @@ export function QuickView({ product, onClose }) {
             className="h-full w-full object-cover md:aspect-[3/4]"
           />
           <div className="relative p-8 md:p-12">
-            <button aria-label="Close quick view" onClick={onClose} className="absolute right-6 top-6">
+            <button aria-label="Close quick view" onClick={onClose} className="tap-target absolute right-6 top-6">
               <X className="size-5" strokeWidth={1.2} />
             </button>
             <p className="eyebrow text-rose">{product.badges?.[0] ?? "Edit"}</p>
@@ -148,7 +148,7 @@ export function QuickView({ product, onClose }) {
               <button
                 aria-label="Add to wishlist"
                 onClick={() => toggle(product)}
-                className="transition-transform duration-500 hover:scale-110"
+                className="tap-target transition-transform duration-500 hover:scale-110"
               >
                 <Heart
                   className={`size-5 ${isWished(product.id) ? "fill-burgundy text-burgundy" : ""}`}

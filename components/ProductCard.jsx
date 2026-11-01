@@ -63,7 +63,7 @@ export function ProductCard({
         <button
           aria-label="Add to wishlist"
           onClick={() => toggle(product)}
-          className="absolute right-4 top-4 grid size-9 place-items-center bg-cream/90 transition-transform duration-500 hover:scale-110"
+          className="tap-target absolute right-4 top-4 grid size-9 place-items-center bg-cream/90 transition-transform duration-500 hover:scale-110"
         >
           <Heart
             className={`size-4 transition-colors duration-500 ${wished ? "fill-burgundy text-burgundy" : ""}`}
@@ -71,7 +71,11 @@ export function ProductCard({
           />
         </button>
 
-        <div className="absolute inset-x-0 bottom-0 flex translate-y-full gap-px opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+        {/* group-hover reveal only works with a mouse — on touch there is no hover state,
+            so Quick add / View details were unreachable on every phone and tablet. Below
+            `lg` (this project's touch/desktop cutoff, matching SiteNav's own breakpoint)
+            the bar sits permanently visible instead of hidden behind a hover it can't get. */}
+        <div className="absolute inset-x-0 bottom-0 flex gap-px transition-all duration-700 lg:translate-y-full lg:opacity-0 lg:group-hover:translate-y-0 lg:group-hover:opacity-100">
           <button
             onClick={handleQuickAdd}
             disabled={adding}

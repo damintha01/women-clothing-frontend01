@@ -26,7 +26,7 @@ export function CartDrawer() {
       >
         <div className="flex items-center justify-between border-b border-border px-6 py-6">
           <h2 className="eyebrow">Shopping bag ({cart.items.length})</h2>
-          <button aria-label="Close bag" onClick={closeDrawer}>
+          <button aria-label="Close bag" onClick={closeDrawer} className="tap-target">
             <X className="size-5" strokeWidth={1.2} />
           </button>
         </div>

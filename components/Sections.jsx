@@ -131,7 +131,7 @@ export function EditorialStory() {
           <div className="mx-auto w-full max-w-[1600px] px-5 md:px-10">
             <Reveal>
               <p className="eyebrow text-cream/80">Editorial 01</p>
-              <h2 className="display mt-5 max-w-[12ch] text-[clamp(3rem,10vw,9rem)] text-cream">
+              <h2 className="display mt-5 max-w-[12ch] text-[clamp(2.5rem,10vw,9rem)] text-cream">
                 The New Femininity
               </h2>
             </Reveal>
@@ -186,7 +186,10 @@ export function Lookbook({ products = [] }) {
             {lookItems.map((item) => (
               <div key={item.name} className="group absolute" style={{ top: item.top, left: item.left }}>
                 <span className="block size-3 rounded-full bg-cream ring-4 ring-cream/30 transition-transform duration-500 group-hover:scale-125" />
-                <div className="pointer-events-none absolute left-6 top-1/2 w-56 -translate-y-1/2 bg-cream p-4 opacity-0 shadow-[var(--shadow-lux)] transition-opacity duration-500 group-hover:opacity-100">
+                {/* Hover-only, so it is dead weight on touch — and at 224px wide it pushed
+                    the whole document past the viewport on phones. The same three pieces are
+                    listed with names and prices in the column below. */}
+                <div className="pointer-events-none absolute left-6 top-1/2 hidden w-56 -translate-y-1/2 bg-cream p-4 opacity-0 shadow-[var(--shadow-lux)] transition-opacity duration-500 group-hover:opacity-100 lg:block">
                   <p className="font-serif text-lg leading-tight">{item.name}</p>
                   <p className="mt-1 text-xs text-muted-foreground">{LKR(item.price)}</p>
                 </div>
@@ -197,7 +200,7 @@ export function Lookbook({ products = [] }) {
 
         <Reveal delay={120} className="flex flex-col justify-center">
           <p className="eyebrow text-rose">Look 04 — Office Edit</p>
-          <h3 className="display mt-5 text-5xl">Tailoring, undone</h3>
+          <h3 className="display mt-5 text-4xl md:text-5xl">Tailoring, undone</h3>
           <ul className="mt-10 divide-y divide-border border-y border-border">
             {looks.map((p) => (
               <li key={p.id} className="flex items-center gap-5 py-5">
@@ -252,7 +255,7 @@ export function BrandStory() {
         </Reveal>
         <Reveal delay={120}>
           <p className="eyebrow text-rose">Our story</p>
-          <h2 className="display mt-5 text-[clamp(2.6rem,7vw,6rem)]">More than clothes.</h2>
+          <h2 className="display mt-5 text-[clamp(2.2rem,7vw,6rem)]">More than clothes.</h2>
           <p className="mt-8 max-w-lg text-sm leading-relaxed text-muted-foreground">
             Ceylon began in a small Colombo studio with a single idea: that the clothes a woman
             wears every day should feel as considered as the ones she saves for occasions. We cut in
@@ -261,7 +264,7 @@ export function BrandStory() {
           <p className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground">
             Sri Lankan at heart. International in appearance.
           </p>
-          <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
+          <div className="mt-10 grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-3">
             {[
               ["Small-batch", "Made in Colombo"],
               ["Natural fibres", "Linen, silk, cotton"],

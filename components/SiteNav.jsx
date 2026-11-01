@@ -50,8 +50,6 @@ export function SiteNav() {
     return () => document.removeEventListener("mousedown", onClickOutside);
   }, [accountOpen]);
 
-  const tone = scrolled || mega ? "text-foreground" : "text-cream";
-
   function submitSearch(e) {
     e.preventDefault();
     if (!query.trim()) return;
@@ -75,10 +73,10 @@ export function SiteNav() {
           : "bg-transparent"
           }`}
       >
-        <div className={`mx-auto flex max-w-[1600px] items-center gap-6 px-5 md:px-10 ${scrolled ? "py-4" : "py-6"} transition-all duration-700 ${tone}`}>
+        <div className={`mx-auto flex max-w-[1600px] items-center gap-6 px-5 md:px-10 ${scrolled ? "py-4" : "py-6"} text-foreground transition-all duration-700`}>
           <button
             aria-label="Open menu"
-            className="lg:hidden"
+            className="tap-target lg:hidden"
             onClick={() => setMobile(true)}
           >
             <Menu className="size-5" strokeWidth={1.2} />
@@ -101,8 +99,8 @@ export function SiteNav() {
             ))}
           </nav>
 
-          <div className="ml-auto flex items-center gap-5 lg:ml-8">
-            <button aria-label="Search" onClick={() => setSearch(true)} className="transition-transform duration-500 hover:-translate-y-0.5">
+          <div className="ml-auto flex items-center gap-6 sm:gap-5 lg:ml-8">
+            <button aria-label="Search" onClick={() => setSearch(true)} className="tap-target transition-transform duration-500 hover:-translate-y-0.5">
               <Search className="size-[18px]" strokeWidth={1.2} />
             </button>
             {user ? (
@@ -111,7 +109,7 @@ export function SiteNav() {
                   aria-label="Account menu"
                   aria-expanded={accountOpen}
                   onClick={() => setAccountOpen((v) => !v)}
-                  className="transition-transform duration-500 hover:-translate-y-0.5"
+                  className="tap-target transition-transform duration-500 hover:-translate-y-0.5"
                 >
                   <User className="size-[18px]" strokeWidth={1.2} />
                 </button>
@@ -144,7 +142,7 @@ export function SiteNav() {
                 Sign In
               </Link>
             )}
-            <Link href="/account/wishlist" aria-label="Wishlist" className="relative transition-transform duration-500 hover:-translate-y-0.5">
+            <Link href="/account/wishlist" aria-label="Wishlist" className="tap-target transition-transform duration-500 hover:-translate-y-0.5">
               <Heart className="size-[18px]" strokeWidth={1.2} />
               {ids.length > 0 && (
                 <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-rose text-[9px] text-cream">
@@ -152,7 +150,7 @@ export function SiteNav() {
                 </span>
               )}
             </Link>
-            <button aria-label="Shopping bag" onClick={openDrawer} className="relative transition-transform duration-500 hover:-translate-y-0.5">
+            <button aria-label="Shopping bag" onClick={openDrawer} className="tap-target transition-transform duration-500 hover:-translate-y-0.5">
               <ShoppingBag className="size-[18px]" strokeWidth={1.2} />
               {cart.itemCount > 0 && (
                 <span className="absolute -right-2 -top-2 flex size-4 items-center justify-center rounded-full bg-burgundy text-[9px] text-cream">
@@ -211,7 +209,7 @@ export function SiteNav() {
           }`}
       >
         <div className="mx-auto flex h-full max-w-4xl flex-col justify-center px-6">
-          <button aria-label="Close search" onClick={() => setSearch(false)} className="absolute right-6 top-7">
+          <button aria-label="Close search" onClick={() => setSearch(false)} className="tap-target absolute right-6 top-7">
             <X className="size-6" strokeWidth={1.2} />
           </button>
           <h2 className="display text-[clamp(2.5rem,7vw,5.5rem)]">What are you looking for?</h2>
@@ -249,7 +247,7 @@ export function SiteNav() {
       >
         <div className="flex items-center justify-between px-5 py-6">
           <span className="display text-xl tracking-[0.14em]">CEYLON</span>
-          <button aria-label="Close menu" onClick={() => setMobile(false)}>
+          <button aria-label="Close menu" onClick={() => setMobile(false)} className="tap-target">
             <X className="size-6" strokeWidth={1.2} />
           </button>
         </div>
